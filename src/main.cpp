@@ -45,9 +45,8 @@ int main() {
     
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
-
-        std::string fpsStr = std::to_string(GetFPS()) + " FPS";
-        DrawText(fpsStr.c_str(), 10, 10, 20, BLACK);
+        
+        DrawFPS(10, 10);
         
         if (IsKeyDown(KEY_A)) velocity.x = -200;
         else if (IsKeyDown(KEY_D)) velocity.x = 200;
