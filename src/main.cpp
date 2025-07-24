@@ -41,7 +41,7 @@ int main() {
         BeginDrawing();
         ClearBackground(SKYBLUE);
         DrawRectangleRec(ground, DARKGREEN);
-        DrawRectangleV(player, (Vector2){32, 32}, RED);
+        DrawRectangleV(player, Vector2{32, 32}, RED);
         EndDrawing();
     }
     
