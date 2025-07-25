@@ -125,7 +125,6 @@ int main() {
         
         BeginDrawing();
         ClearBackground(SKYBLUE);
-        DrawFPS(10, 10);
         
         DrawRectangleRec(ground, DARKGREEN);
         
