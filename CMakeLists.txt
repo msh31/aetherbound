@@ -4,7 +4,13 @@ project(Aetherbound CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp
+        src/inventory.cpp
+        src/inventory.h
+        src/game.cpp
+        src/game.h
+        src/item.cpp
+        src/item.h)
 
 set(RESOURCES_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/resources")
 set(RESOURCES_DESTINATION_DIR "$<TARGET_FILE_DIR:${PROJECT_NAME}>/resources")
