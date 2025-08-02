@@ -5,9 +5,18 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(cmake/embed_resources.cmake)
-add_executable(${PROJECT_NAME} src/main.cpp)
-add_embedded_resources(${PROJECT_NAME})
 
+add_executable(${PROJECT_NAME} 
+    src/main.cpp
+    src/inventory.cpp
+    src/inventory.h
+    src/game.cpp
+    src/game.h
+    src/item.cpp
+    src/item.h
+)
+
+add_embedded_resources(${PROJECT_NAME})
 if(WIN32)
     set(RAYLIB_INCLUDE_DIR "C:/RaylibSDK/include")
     set(RAYLIB_LIB_DIR "C:/RaylibSDK/lib")

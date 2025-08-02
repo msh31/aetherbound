@@ -16,7 +16,6 @@ typedef enum {
 
 int main() {
     InitWindow(1280, 720, "Aetherbound");
-    Font font = GetFontDefault();
     SetTargetFPS(120);
     
     Vector2 player = {100, 520};
@@ -24,6 +23,9 @@ int main() {
     float gravity = 600.0f;
     float jumpSpeed = -350.0f;
     bool onGround = false;
+    int score = 0;
+    int lives = 1;
+    int coins = 0;
     
     Rectangle ground = {0, 620, 1280, 100};
     
@@ -104,6 +106,7 @@ int main() {
             if (attackTimer >= attackDuration) {
                 isAttacking = false;
             }
+            score += 1;
         }
         else if (isHurt) {
             currentAnim = ANIM_HURT;
@@ -141,8 +144,7 @@ int main() {
         
         BeginDrawing();
         ClearBackground(SKYBLUE);
-        DrawFPS(10, 10);
-        
+        DrawText(TextFormat("Score: %08i", score), 20, 400, 20, RED);
         DrawRectangleRec(ground, DARKGREEN);
         
         Texture2D currentTexture = animTextures[currentAnim];
