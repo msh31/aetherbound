@@ -1,5 +1,10 @@
 #include "raylib.h"
 
+#include "IDLE_resource.h"
+#include "RUN_resource.h"
+#include "HURT_resource.h"
+#include "ATTACK_resource.h"
+
 #include <string>
 
 typedef enum {
@@ -23,10 +28,21 @@ int main() {
     Rectangle ground = {0, 620, 1280, 100};
     
     Texture2D animTextures[4];
-    animTextures[ANIM_IDLE] = LoadTexture("resources/IDLE.png");
-    animTextures[ANIM_RUN] = LoadTexture("resources/RUN.png");
-    animTextures[ANIM_HURT] = LoadTexture("resources/HURT.png");
-    animTextures[ANIM_ATTACK] = LoadTexture("resources/ATTACK.png");
+    Image idleImg = LoadImageFromMemory(".png", IDLE_DATA, IDLE_SIZE);
+    animTextures[ANIM_IDLE] = LoadTextureFromImage(idleImg);
+    UnloadImage(idleImg);
+    
+    Image runImg = LoadImageFromMemory(".png", RUN_DATA, RUN_SIZE);
+    animTextures[ANIM_RUN] = LoadTextureFromImage(runImg);
+    UnloadImage(runImg);
+    
+    Image hurtImg = LoadImageFromMemory(".png", HURT_DATA, HURT_SIZE);
+    animTextures[ANIM_HURT] = LoadTextureFromImage(hurtImg);
+    UnloadImage(hurtImg);
+    
+    Image attackImg = LoadImageFromMemory(".png", ATTACK_DATA, ATTACK_SIZE);
+    animTextures[ANIM_ATTACK] = LoadTextureFromImage(attackImg);
+    UnloadImage(attackImg);
     
     int frameCount[4] = {10, 16, 4, 7};
     
